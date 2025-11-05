@@ -1,0 +1,42 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - deploy  # Triggers when deploy branch is updated
+  workflow_dispatch:  # Allows manual triggers
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout deploy branch
+        uses: actions/checkout@v4
+        with:
+          ref: deploy
+          
+      - name: Deploy to Hostinger via SSH
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 65002
+          source: "./*"
+          target: "./public_html/"
+          
+      - name: Verify deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 65002
+          script: |
+            echo "Current directory:"
+            pwd
+            echo "Files in home directory:"
+            ls -la
+            echo "Files in public_html:"
+            ls -la public_html/ || echo "public_html not found"
