@@ -1,6 +1,18 @@
 // Form submission utilities using Web3Forms API
 // Get your free access key at: https://web3forms.com
 
+import { 
+  sanitizeInput, 
+  sanitizeEmail, 
+  isValidEmail as validateEmail,
+  isValidName,
+  isValidMessage,
+  checkRateLimit,
+  getClientFingerprint,
+  containsMaliciousContent,
+  sanitizeFormData
+} from './security'
+
 interface ContactFormData {
   name: string
   email: string
@@ -23,12 +35,64 @@ interface FormResponse {
 export async function submitContactForm(data: ContactFormData): Promise<FormResponse> {
   const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
 
+  // Security validation
+  const fingerprint = getClientFingerprint()
+  
+  // Rate limiting check (max 3 submissions per minute)
+  if (!checkRateLimit(`contact-${fingerprint}`, 3, 60000)) {
+    return {
+      success: false,
+      message: 'Too many submission attempts. Please wait a moment before trying again.'
+    }
+  }
+
+  // Validate and sanitize inputs
+  const sanitizedName = sanitizeInput(data.name)
+  const sanitizedEmail = sanitizeEmail(data.email)
+  const sanitizedMessage = sanitizeInput(data.message)
+  const sanitizedReason = sanitizeInput(data.reason)
+
+  // Enhanced validation
+  if (!isValidName(sanitizedName)) {
+    return {
+      success: false,
+      message: 'Please enter a valid name (2-100 characters, letters only).'
+    }
+  }
+
+  if (!validateEmail(sanitizedEmail)) {
+    return {
+      success: false,
+      message: 'Please enter a valid email address.'
+    }
+  }
+
+  if (!isValidMessage(sanitizedMessage)) {
+    return {
+      success: false,
+      message: 'Message must be between 10 and 5000 characters and contain appropriate content.'
+    }
+  }
+
+  // Check for malicious content
+  if (containsMaliciousContent(sanitizedMessage) || containsMaliciousContent(sanitizedName)) {
+    return {
+      success: false,
+      message: 'Invalid content detected. Please remove any HTML or script tags.'
+    }
+  }
+
   if (!accessKey) {
     console.error('Web3Forms access key not configured. Please add VITE_WEB3FORMS_ACCESS_KEY to your .env file')
     // Return mock success for development
     return new Promise((resolve) => {
       setTimeout(() => {
-        console.log('📧 Contact form submitted (mock):', data)
+        console.log('📧 Contact form submitted (mock):', {
+          name: sanitizedName,
+          email: sanitizedEmail,
+          reason: sanitizedReason,
+          message: sanitizedMessage.substring(0, 100) + '...'
+        })
         resolve({
           success: true,
           message: 'Thank you for your message! We will get back to you soon. (Development mode - no email sent)'
@@ -46,21 +110,21 @@ export async function submitContactForm(data: ContactFormData): Promise<FormResp
       },
       body: JSON.stringify({
         access_key: accessKey,
-        name: data.name,
-        email: data.email,
-        subject: `Contact Form: ${data.reason}`,
+        name: sanitizedName,
+        email: sanitizedEmail,
+        subject: `Contact Form: ${sanitizedReason}`,
         message: `
-Reason: ${data.reason}
+Reason: ${sanitizedReason}
 
 Message:
-${data.message}
+${sanitizedMessage}
 
 ---
-From: ${data.name}
-Email: ${data.email}
+From: ${sanitizedName}
+Email: ${sanitizedEmail}
         `.trim(),
         from_name: 'EducateHers Kenya Website',
-        replyto: data.email,
+        replyto: sanitizedEmail,
         botcheck: false, // Disable bot check - enable in Web3Forms dashboard if needed
       }),
     })
@@ -90,12 +154,41 @@ Email: ${data.email}
 export async function submitNewsletterSubscription(data: NewsletterData): Promise<FormResponse> {
   const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
 
+  // Security validation
+  const fingerprint = getClientFingerprint()
+  
+  // Rate limiting check (max 3 submissions per minute)
+  if (!checkRateLimit(`newsletter-${fingerprint}`, 3, 60000)) {
+    return {
+      success: false,
+      message: 'Too many subscription attempts. Please wait a moment before trying again.'
+    }
+  }
+
+  // Validate and sanitize email
+  const sanitizedEmail = sanitizeEmail(data.email)
+
+  if (!validateEmail(sanitizedEmail)) {
+    return {
+      success: false,
+      message: 'Please enter a valid email address.'
+    }
+  }
+
+  // Check for malicious content
+  if (containsMaliciousContent(sanitizedEmail)) {
+    return {
+      success: false,
+      message: 'Invalid email format detected.'
+    }
+  }
+
   if (!accessKey) {
     console.error('Web3Forms access key not configured. Please add VITE_WEB3FORMS_ACCESS_KEY to your .env file')
     // Return mock success for development
     return new Promise((resolve) => {
       setTimeout(() => {
-        console.log('📧 Newsletter subscription (mock):', data)
+        console.log('📧 Newsletter subscription (mock):', { email: sanitizedEmail })
         resolve({
           success: true,
           message: 'Successfully subscribed! (Development mode - no email sent)'
@@ -113,16 +206,16 @@ export async function submitNewsletterSubscription(data: NewsletterData): Promis
       },
       body: JSON.stringify({
         access_key: accessKey,
-        email: data.email,
+        email: sanitizedEmail,
         subject: 'New Newsletter Subscription',
         message: `
 New newsletter subscription request:
 
-Email: ${data.email}
+Email: ${sanitizedEmail}
 Subscribed at: ${new Date().toLocaleString()}
         `.trim(),
         from_name: 'EducateHers Kenya Website',
-        replyto: data.email,
+        replyto: sanitizedEmail,
         botcheck: false, // Disable bot check - enable in Web3Forms dashboard if needed
       }),
     })
