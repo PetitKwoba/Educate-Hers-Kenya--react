@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { submitNewsletterSubscription, isValidEmail } from '../utils/formService'
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
@@ -62,7 +63,7 @@ export default function Footer() {
                 className="footer-social-icon"
                 aria-label="Facebook"
               >
-                <i className="fab fa-facebook-f"></i>
+                <FaFacebookF />
               </a>
               <a 
                 href="https://x.com/EducateHERs" 
@@ -71,7 +72,7 @@ export default function Footer() {
                 className="footer-social-icon"
                 aria-label="Twitter"
               >
-                <i className="fab fa-twitter"></i>
+                <FaTwitter />
               </a>
               <a 
                 href="https://www.instagram.com/educateherskenya/" 
@@ -80,7 +81,7 @@ export default function Footer() {
                 className="footer-social-icon"
                 aria-label="Instagram"
               >
-                <i className="fab fa-instagram"></i>
+                <FaInstagram />
               </a>
               <a 
                 href="https://www.linkedin.com/company/educate-hers/" 
@@ -89,7 +90,7 @@ export default function Footer() {
                 className="footer-social-icon"
                 aria-label="LinkedIn"
               >
-                <i className="fab fa-linkedin-in"></i>
+                <FaLinkedinIn />
               </a>
               <a 
                 href="https://www.youtube.com/@EducateHERs" 
@@ -98,7 +99,7 @@ export default function Footer() {
                 className="footer-social-icon"
                 aria-label="YouTube"
               >
-                <i className="fab fa-youtube"></i>
+                <FaYoutube />
               </a>
             </div>
           </div>

@@ -1,9 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 export default function Home() {
   return (
     <main>
+      <SEO 
+        title="Home"
+        description="EducateHers Kenya is a non-profit organization dedicated to empowering girls through education, advocating for gender equality, and creating opportunities for young women across Kenya."
+        keywords="girls education Kenya, gender equality, education NGO, empower girls, Kenya education, girls empowerment, scholarship programs, STEM education for girls, gender-responsive education"
+        url="https://educateherskenya.org"
+      />
       {/* Hero Section with Background Image */}
       <section className="hero-section" aria-label="Hero banner">
         <div className="hero-overlay">

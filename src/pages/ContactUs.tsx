@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { submitContactForm, isValidEmail } from '../utils/formService'
+import SEO from '../components/SEO'
 
 type FormState = {
   name: string
@@ -69,6 +70,12 @@ export default function ContactUs() {
 
   return (
     <section>
+      <SEO 
+        title="Contact Us"
+        description="Get in touch with EducateHers Kenya. Have questions, want to volunteer, partner with us, or support our mission? We'd love to hear from you. Contact us today."
+        keywords="contact EducateHers Kenya, Kenya NGO contact, email EducateHers, get involved, partner with us, support girls education"
+        url="https://educateherskenya.org/contact"
+      />
       <h1>Get In Touch</h1>
       <p style={{ fontSize: '1.15rem', marginBottom: '2rem' }}>
         Have questions or want to get involved? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
@@ -294,11 +301,15 @@ export default function ContactUs() {
               fontWeight: 600,
               transition: 'transform 0.2s',
               border: 'none',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
             }}
             onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
             onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
           >
+            <i className="fab fa-twitter"></i>
             Twitter
           </a>
           <a 
@@ -314,11 +325,15 @@ export default function ContactUs() {
               fontWeight: 600,
               transition: 'transform 0.2s',
               border: 'none',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
             }}
             onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
             onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
           >
+            <i className="fab fa-facebook-f"></i>
             Facebook
           </a>
           <a 
@@ -334,11 +349,15 @@ export default function ContactUs() {
               fontWeight: 600,
               transition: 'transform 0.2s',
               border: 'none',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
             }}
             onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
             onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
           >
+            <i className="fab fa-instagram"></i>
             Instagram
           </a>
           <a 
@@ -354,11 +373,15 @@ export default function ContactUs() {
               fontWeight: 600,
               transition: 'transform 0.2s',
               border: 'none',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
             }}
             onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
             onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
           >
+            <i className="fab fa-linkedin-in"></i>
             LinkedIn
           </a>
           <a 
@@ -374,11 +397,15 @@ export default function ContactUs() {
               fontWeight: 600,
               transition: 'transform 0.2s',
               border: 'none',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
             }}
             onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
             onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
           >
+            <i className="fab fa-youtube"></i>
             YouTube
           </a>
         </div>

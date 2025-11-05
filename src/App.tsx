@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -17,23 +18,25 @@ import NotFound from './pages/NotFound'
 
 export default function App() {
   return (
-    <div className="app">
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/volunteer" element={<Volunteer />} />
-        <Route path="/what-we-do" element={<WhatWeDo />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/donate" element={<Donate />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/cookies" element={<Cookies />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </div>
+    <HelmetProvider>
+      <div className="app">
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/volunteer" element={<Volunteer />} />
+          <Route path="/what-we-do" element={<WhatWeDo />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/donate" element={<Donate />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </div>
+    </HelmetProvider>
   )
 }

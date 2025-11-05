@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getBlogPostBySlug, blogPosts } from '../data/blogData'
+import SEO from '../components/SEO'
 
 // Type definitions
 type ParagraphBlock = { type: 'paragraph'; text: string }
@@ -18,9 +19,42 @@ export default function BlogPost() {
   // Get related posts (excluding current post)
   const relatedPosts = blogPosts.filter(p => p.slug !== slug).slice(0, 3)
 
+  // Share functions
+  const currentUrl = window.location.href
+  const shareTitle = post?.title || ''
+  const shareText = post?.excerpt || ''
+
+  const handleShare = (platform: string) => {
+    const encodedUrl = encodeURIComponent(currentUrl)
+    const encodedTitle = encodeURIComponent(shareTitle)
+    const encodedText = encodeURIComponent(shareText)
+
+    let shareUrl = ''
+
+    switch(platform) {
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`
+        break
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`
+        break
+      case 'linkedin':
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`
+        break
+      case 'whatsapp':
+        shareUrl = `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`
+        break
+      default:
+        return
+    }
+
+    window.open(shareUrl, '_blank')
+  }
+
   if (!post) {
     return (
       <div className="container" style={{ padding: '100px 20px', textAlign: 'center' }}>
+        <SEO title="Blog Post Not Found" />
         <h1>Blog post not found</h1>
         <Link to="/blog" style={{ color: '#00a9ce', textDecoration: 'underline' }}>
           Back to Blog
@@ -31,6 +65,17 @@ export default function BlogPost() {
 
   return (
     <main className="blog-post-page">
+      <SEO 
+        title={post.title}
+        description={post.excerpt}
+        keywords={`${post.category}, girls education Kenya, EducateHers Kenya, ${post.title.toLowerCase()}`}
+        url={`https://educateherskenya.org/blog/${post.slug}`}
+        type="article"
+        publishedTime={post.date}
+        section={post.category}
+        tags={[post.category, 'girls education', 'Kenya', 'empowerment']}
+        author={post.author}
+      />
       {/* Hero Section */}
       <section className="post-hero" style={{ background: post.gradient }}>
         <div className="container">
@@ -117,16 +162,16 @@ export default function BlogPost() {
               <div className="sidebar-card share-card">
                 <h3>Share This Article</h3>
                 <div className="share-buttons">
-                  <button className="share-btn facebook">
+                  <button className="share-btn facebook" onClick={() => handleShare('facebook')}>
                     <i className="fab fa-facebook-f"></i>
                   </button>
-                  <button className="share-btn twitter">
+                  <button className="share-btn twitter" onClick={() => handleShare('twitter')}>
                     <i className="fab fa-twitter"></i>
                   </button>
-                  <button className="share-btn linkedin">
+                  <button className="share-btn linkedin" onClick={() => handleShare('linkedin')}>
                     <i className="fab fa-linkedin-in"></i>
                   </button>
-                  <button className="share-btn whatsapp">
+                  <button className="share-btn whatsapp" onClick={() => handleShare('whatsapp')}>
                     <i className="fab fa-whatsapp"></i>
                   </button>
                 </div>

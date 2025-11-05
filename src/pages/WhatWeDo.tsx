@@ -1,4 +1,5 @@
 import React from 'react'
+import SEO from '../components/SEO'
 
 interface ServiceCardProps {
   icon: string
@@ -103,6 +104,12 @@ export default function WhatWeDo() {
 
   return (
     <main className="what-we-do-page">
+      <SEO 
+        title="What We Do"
+        description="EducateHers Kenya offers consulting services, training programs, online courses, and advocacy campaigns to promote gender equality in education. Learn about our comprehensive approach to empowering girls through education."
+        keywords="gender equality education, consulting services Kenya, training programs, online courses, advocacy campaigns, STEM education, girls empowerment programs"
+        url="https://educateherskenya.org/what-we-do"
+      />
       {/* Hero Section */}
       <section className="what-we-do-hero">
         <div className="what-we-do-hero-content">
