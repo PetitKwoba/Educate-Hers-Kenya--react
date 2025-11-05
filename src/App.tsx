@@ -7,6 +7,7 @@ import Events from './pages/Events'
 import Volunteer from './pages/Volunteer'
 import WhatWeDo from './pages/WhatWeDo'
 import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import ContactUs from './pages/ContactUs'
 import Donate from './pages/Donate'
 import Privacy from './pages/Privacy'
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/what-we-do" element={<WhatWeDo />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/privacy" element={<Privacy />} />
