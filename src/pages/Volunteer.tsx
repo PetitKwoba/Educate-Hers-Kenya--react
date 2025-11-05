@@ -1,4 +1,5 @@
 import React from 'react'
+import SEO from '../components/SEO'
 
 interface ResponsibilityProps {
   number: string
@@ -48,6 +49,12 @@ const Benefit: React.FC<BenefitProps> = ({ icon, text }) => {
 export default function Volunteer() {
   return (
     <main className="volunteer-page">
+      <SEO 
+        title="Volunteer"
+        description="Join EducateHers Kenya as a volunteer advocate for gender equality in education. Make a difference in girls' lives through mentorship, advocacy, and community outreach programs."
+        keywords="volunteer Kenya, volunteer opportunities, gender equality volunteer, education volunteer, girls education advocate, volunteer Kenya NGO"
+        url="https://educateherskenya.org/volunteer"
+      />
       {/* Hero Section */}
       <section className="volunteer-hero">
         <div className="volunteer-hero-content">

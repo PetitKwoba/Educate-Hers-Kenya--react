@@ -1190,9 +1190,16 @@ label {
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: var(--font-lg);
+  font-size: 18px;
   transition: var(--transition);
   text-decoration: none;
+  position: relative;
+}
+
+.footer-social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
 
 .footer-social-icon:hover {

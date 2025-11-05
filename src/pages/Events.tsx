@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 interface Event {
   id: string
@@ -176,6 +177,12 @@ export default function Events() {
 
   return (
     <main className="events-page">
+      <SEO 
+        title="Events"
+        description="Join EducateHers Kenya at our upcoming workshops, fundraisers, training sessions, and community events. Be part of the movement to empower girls through education in Kenya."
+        keywords="EducateHers Kenya events, girls education workshops, fundraising events Kenya, training sessions, community events, gender equality events"
+        url="https://educateherskenya.org/events"
+      />
       {/* Hero Section */}
       <section className="events-hero">
         <div className="events-hero-content">

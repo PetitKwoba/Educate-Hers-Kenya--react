@@ -1,13 +1,45 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { blogPosts } from '../data/blogData'
+import { blogPosts, searchBlogPosts, getBlogPostsByCategory } from '../data/blogData'
+import SEO from '../components/SEO'
 
 export default function Blog() {
+  const [searchQuery, setSearchQuery] = React.useState('')
+  const [selectedCategory, setSelectedCategory] = React.useState('All')
 
   const categories = ["All", "Success Stories", "Impact", "Insights", "News", "Community", "Programs"]
 
+  // Filter posts based on search and category
+  const filteredPosts = React.useMemo(() => {
+    let posts = blogPosts
+
+    // Filter by category first
+    if (selectedCategory !== 'All') {
+      posts = getBlogPostsByCategory(selectedCategory)
+    }
+
+    // Then filter by search query
+    if (searchQuery.trim()) {
+      const lowercaseQuery = searchQuery.toLowerCase()
+      posts = posts.filter(post => 
+        post.title.toLowerCase().includes(lowercaseQuery) ||
+        post.excerpt.toLowerCase().includes(lowercaseQuery) ||
+        post.category.toLowerCase().includes(lowercaseQuery)
+      )
+    }
+
+    return posts
+  }, [searchQuery, selectedCategory])
+
   return (
     <main className="blog-page-modern">
+      <SEO 
+        title="Blog & Stories"
+        description="Read inspiring stories from EducateHers Kenya students, volunteers, and partners. Stay updated on our latest programs, success stories, and impact in girls' education across Kenya."
+        keywords="EducateHers Kenya blog, girls education stories, Kenya education news, success stories, student testimonials, education impact, gender equality stories"
+        url="https://educateherskenya.org/blog"
+        type="website"
+      />
       {/* Hero Section */}
       <section className="blog-hero-modern">
         <div className="container">
@@ -34,7 +66,8 @@ export default function Blog() {
               {categories.map((category) => (
                 <button 
                   key={category}
-                  className={`filter-btn ${category === "All" ? "active" : ""}`}
+                  className={`filter-btn ${category === selectedCategory ? "active" : ""}`}
+                  onClick={() => setSelectedCategory(category)}
                 >
                   {category}
                 </button>
@@ -42,7 +75,12 @@ export default function Blog() {
             </div>
             <div className="search-box">
               <i className="fas fa-search"></i>
-              <input type="text" placeholder="Search articles..." />
+              <input 
+                type="text" 
+                placeholder="Search articles..." 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
             </div>
           </div>
         </div>
@@ -51,8 +89,14 @@ export default function Blog() {
       {/* Blog Posts Grid */}
       <section className="blog-posts-section">
         <div className="container">
-          <div className="posts-grid">
-            {blogPosts.map((post) => (
+          {filteredPosts.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '60px 20px' }}>
+              <h3 style={{ color: '#666', fontSize: '24px', marginBottom: '10px' }}>No posts found</h3>
+              <p style={{ color: '#999' }}>Try adjusting your search or filter criteria</p>
+            </div>
+          ) : (
+            <div className="posts-grid">
+              {filteredPosts.map((post) => (
               <article key={post.id} className="blog-card-modern">
                 <div className="card-image-wrapper" style={{ background: post.gradient }}>
                   <span className="post-emoji">{post.emoji}</span>
@@ -79,6 +123,7 @@ export default function Blog() {
               </article>
             ))}
           </div>
+          )}
 
           {/* Load More Button */}
           <div className="load-more-wrapper">

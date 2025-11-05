@@ -1,9 +1,16 @@
 ﻿import React from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 export default function Donate() {
   return (
     <main className="donate-page-modern">
+      <SEO 
+        title="Donate"
+        description="Support EducateHers Kenya and help empower girls through education. Your donation provides scholarships, STEM programs, and educational resources to girls across Kenya. Make a difference today."
+        keywords="donate to EducateHers Kenya, support girls education, Kenya education donation, scholarship fund, girls empowerment donation, support gender equality"
+        url="https://educateherskenya.org/donate"
+      />
       {/* Hero Section */}
       <section className="donate-hero-modern">
         <div className="container">
