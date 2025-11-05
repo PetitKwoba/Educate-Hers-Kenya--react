@@ -29,14 +29,13 @@ jobs:
         env:
           VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.VITE_WEB3FORMS_ACCESS_KEY }}
           
-      - name: Deploy to Hostinger via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: Deploy to Hostinger via SSH
+        uses: appleboy/scp-action@master
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 65002
-          local_path: './dist/'
-          remote_path: '/public_html'
-          sftp_only: true
-          sftpArgs: '-o ConnectTimeout=5'
+          source: "dist/*"
+          target: "public_html"
+          strip_components: 1
