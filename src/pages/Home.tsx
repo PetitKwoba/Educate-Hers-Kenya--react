@@ -20,9 +20,11 @@ export default function Home() {
           <p className="hero-subtitle">
             We promote gender equality in education through awareness-building, training programs, and the implementation of gender-responsive practices
           </p>
-          <button className="hero-donate-btn" aria-label="Make a donation">
-            Donate
-          </button>
+          <Link to="/donate">
+            <button className="hero-donate-btn" aria-label="Make a donation">
+              Donate
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -37,9 +39,11 @@ export default function Home() {
             <p className="help-description">
               We can't educate her alone, will be better with your donation. We call on fundraising from anything that you can.
             </p>
-            <button className="help-btn btn-teal">
-              Partner with us and Educate Her today
-            </button>
+            <Link to="/donate">
+              <button className="help-btn btn-teal">
+                Partner with us and Educate Her today
+              </button>
+            </Link>
           </article>
 
           {/* Scholarship Card */}
@@ -49,9 +53,11 @@ export default function Home() {
             <p className="help-description">
               We think that education is best way to help needy. You are nonprofit organization, NGO, if you can, let do it.
             </p>
-            <button className="help-btn btn-orange">
-              Support a Scholar
-            </button>
+            <Link to="/donate">
+              <button className="help-btn btn-orange">
+                Support a Scholar
+              </button>
+            </Link>
           </article>
 
           {/* Volunteer Card */}
