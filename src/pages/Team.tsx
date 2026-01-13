@@ -1,79 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
-import ScrollAnimation from '../components/ScrollAnimation'
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaEnvelope } from 'react-icons/fa'
 
-interface TeamMember {
-  name: string
-  role: string
-  bio: string
-  image?: string
-  social?: {
-    facebook?: string
-    twitter?: string
-    linkedin?: string
-    email?: string
-  }
-}
-
-const teamMembers: TeamMember[] = [
+const teamMembers = [
   {
-    name: "Dr. Jane Kamau",
-    role: "Executive Director",
-    bio: "With over 15 years of experience in education advocacy, Dr. Kamau leads our mission to empower girls through education across Kenya.",
-    social: {
-      linkedin: "#",
-      email: "jane@educateherskenya.org"
-    }
+    name: "Cyprian Chenani, Bsc",
+    role: "Founder/Lead Advocate",
+    description: "As the driving force behind our advocacy campaign, our Founder/Lead Advocate sets the vision and direction for our efforts. With a passion for social change and a commitment to empowering youth voices.",
+    image: "/assets/team/cyprian-chenani.png"
   },
   {
-    name: "Peter Ochieng",
-    role: "Programs Manager",
-    bio: "Peter oversees all our education programs and partnerships with schools, ensuring impactful implementation of gender-responsive practices.",
-    social: {
-      linkedin: "#",
-      email: "peter@educateherskenya.org"
-    }
+    name: "Bramuel Wekesa, Bsc",
+    role: "Campaign Coordinator/Event Planner",
+    description: "The mastermind behind our advocacy events and campaigns, orchestrating every detail to ensure their success. From coordinating logistics to rallying support from partners and volunteers.",
+    image: "/assets/team/bramuel-wekesa-2.jpg"
   },
   {
-    name: "Grace Wanjiru",
-    role: "Community Outreach Coordinator",
-    bio: "Grace builds bridges between communities, schools, and EducateHers Kenya, fostering awareness and support for girls' education.",
-    social: {
-      facebook: "#",
-      twitter: "#",
-      email: "grace@educateherskenya.org"
-    }
+    name: "Emmanuel P. Kwoba",
+    role: "Web Developer/Technical Support",
+    description: "Ensures that our website runs smoothly and effectively serves as a hub for our advocacy efforts. Keeps our online platform up to date, secure, and user-friendly, empowering us to reach a wider audience.",
+    image: "/assets/team/emmanuel-kwoba.jpeg"
   },
   {
-    name: "Michael Kiprono",
-    role: "Finance & Operations Manager",
-    bio: "Michael ensures transparent financial management and smooth operations, maximizing the impact of every donation we receive.",
-    social: {
-      linkedin: "#",
-      email: "michael@educateherskenya.org"
-    }
-  },
-  {
-    name: "Sarah Akinyi",
-    role: "Communications & Advocacy Lead",
-    bio: "Sarah amplifies our voice through strategic communications, social media, and advocacy campaigns for gender equality in education.",
-    social: {
-      facebook: "#",
-      twitter: "#",
-      linkedin: "#",
-      email: "sarah@educateherskenya.org"
-    }
-  },
-  {
-    name: "David Mwangi",
-    role: "Volunteer Coordinator",
-    bio: "David manages our volunteer program, matching passionate individuals with meaningful opportunities to support girls' education.",
-    social: {
-      linkedin: "#",
-      email: "david@educateherskenya.org"
-    }
+    name: "Eve Maina",
+    role: "Communications Specialist",
+    description: "The linchpin of our outreach efforts, responsible for crafting clear, concise, and compelling messaging that resonates with our target audience through strategic communication strategies.",
+    image: "assets/team/eve-main.png"
   }
 ]
 
@@ -95,79 +47,46 @@ export default function Team() {
       </section>
 
       <section className="team-section">
-        <div className="container">
-          <ScrollAnimation animation="fade-in">
-            <div className="team-intro">
-              <h2>Working Together for Change</h2>
-              <p>
-                Our diverse team brings together expertise in education, community development, 
-                advocacy, and program management. United by a common goal, we work tirelessly 
-                to ensure every girl in Kenya has access to quality education.
-              </p>
-            </div>
-          </ScrollAnimation>
-
-          <div className="team-grid">
-            {teamMembers.map((member, index) => (
-              <ScrollAnimation 
-                key={index} 
-                animation="slide-up" 
-                delay={index * 100}
-              >
-                <article className="team-card">
-                  <div className="team-member-image">
-                    {member.image ? (
-                      <img src={member.image} alt={member.name} />
-                    ) : (
-                      <div className="team-member-placeholder">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </div>
-                    )}
-                  </div>
-                  <div className="team-member-info">
-                    <h3>{member.name}</h3>
-                    <p className="team-member-role">{member.role}</p>
-                    <p className="team-member-bio">{member.bio}</p>
-                    {member.social && (
-                      <div className="team-member-social">
-                        {member.social.facebook && (
-                          <a href={member.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <FaFacebookF />
-                          </a>
-                        )}
-                        {member.social.twitter && (
-                          <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                            <FaTwitter />
-                          </a>
-                        )}
-                        {member.social.linkedin && (
-                          <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <FaLinkedinIn />
-                          </a>
-                        )}
-                        {member.social.email && (
-                          <a href={`mailto:${member.social.email}`} aria-label="Email">
-                            <FaEnvelope />
-                          </a>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </article>
-              </ScrollAnimation>
-            ))}
-          </div>
-
-          <ScrollAnimation animation="fade-in">
-            <div className="team-cta">
-              <h2>Join Our Mission</h2>
-              <p>Want to be part of the change? We're always looking for passionate individuals to join our team.</p>
-              <Link to="/volunteer" className="cta-button">
-                Volunteer With Us
-              </Link>
-            </div>
-          </ScrollAnimation>
+        <div className="team-header">
+          <p className="team-tagline">OUR TEAMS</p>
+          <h2 className="team-title">Our Awesome Team</h2>
+          <p className="team-subtitle">We work with a very great team focused on helping Her be educated</p>
         </div>
+        <div className="team-grid">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="team-card">
+              <div className="team-image-container">
+                <img src={member.image} alt={member.name} className="team-image" />
+                <div className="team-overlay">
+                  <div className="team-social">
+                    <a href="#" className="social-icon" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
+                    <a href="#" className="social-icon" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
+                    <a href="#" className="social-icon" aria-label="Email"><i className="fas fa-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div className="team-card-content">
+                <h3 className="team-member-name">{member.name}</h3>
+                <p className="team-member-role">{member.role}</p>
+                <p className="team-description">
+                  {member.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="cta-section">
+        <h2 className="cta-title">Join Our Mission</h2>
+        <p className="cta-description">
+          Together, we can create lasting change. Whether through volunteering, donations, or spreading awareness, every action counts.
+        </p>
+        <Link to="/volunteer" className="cta-link">
+          <button className="cta-btn">
+            Become a Volunteer
+          </button>
+        </Link>
       </section>
     </main>
   )

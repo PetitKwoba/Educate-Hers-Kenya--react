@@ -3,7 +3,7 @@ import { FaWhatsapp, FaTimes } from 'react-icons/fa'
 
 export default function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false)
-  const phoneNumber = '254700000000' // Replace with actual EducateHers Kenya WhatsApp number
+  const phoneNumber = '254703257597'
   const message = 'Hello EducateHers Kenya! I would like to know more about your programs.'
 
   const openWhatsApp = () => {

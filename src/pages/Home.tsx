@@ -80,6 +80,8 @@ export default function Home() {
             </article>
           </div>
         </ScrollAnimation>
+      </section>
+
       {/* Impact Statistics Section */}
       <section className="stats-section" aria-labelledby="stats-heading">
         <h2 id="stats-heading" className="visually-hidden">Our Impact Statistics</h2>
@@ -100,8 +102,6 @@ export default function Home() {
             <div className="stat-number"><CounterAnimation end={3} suffix="+" /></div>
             <div className="stat-label">Years</div>
           </div>
-        </div>
-      </section>ounter number="3+" label="Years" />
         </div>
       </section>
 

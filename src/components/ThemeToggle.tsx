@@ -23,12 +23,16 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className="theme-toggle"
+      className={`theme-toggle ${isDark ? 'dark' : 'light'}`}
       onClick={toggleTheme}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
-      {isDark ? <FaSun /> : <FaMoon />}
+      <span className="theme-toggle-track">
+        <span className="theme-toggle-thumb">
+          {isDark ? <FaMoon className="icon" /> : <FaSun className="icon" />}
+        </span>
+      </span>
     </button>
   )
 }

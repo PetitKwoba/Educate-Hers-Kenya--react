@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import GoogleAnalytics from './components/GoogleAnalytics'
 import WhatsAppWidget from './components/WhatsAppWidget'
 import NewsletterPopup from './components/NewsletterPopup'
+import DonationExitPopup from './components/DonationExitPopup'
 import Home from './pages/Home'
 import Events from './pages/Events'
 import Volunteer from './pages/Volunteer'
@@ -46,6 +47,7 @@ export default function App() {
         <Footer />
         <WhatsAppWidget />
         <NewsletterPopup />
+        <DonationExitPopup />
       </div>
     </HelmetProvider>
   )
