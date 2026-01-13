@@ -19,11 +19,11 @@ const testimonials: Testimonial[] = [
     role: "School Principal, Turkana",
     quote: "The gender-responsive education training from EducateHers Kenya transformed our school. We've seen a significant increase in girls' enrollment and performance. Their approach is truly impactful."
   },
-  {
-    name: "Grace Achieng",
-    role: "Community Leader",
-    quote: "Working with EducateHers Kenya has empowered our community to value girls' education. The awareness campaigns and workshops have changed mindsets and created lasting positive change."
-  },
+  // {
+  //   name: "Grace Achieng",
+  //   role: "Community Leader",
+  //   quote: "Working with EducateHers Kenya has empowered our community to value girls' education. The awareness campaigns and workshops have changed mindsets and created lasting positive change."
+  // },
   {
     name: "Mary Njeri",
     role: "University Student",
