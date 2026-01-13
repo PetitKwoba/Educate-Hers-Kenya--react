@@ -40,3 +40,9 @@ jobs:
           publish_branch: deploy
           force_orphan: true
           cname: educateherskenya.org
+          
+      - name: Trigger deployment
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: deploy-trigger

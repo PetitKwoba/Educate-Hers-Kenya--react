@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - deploy  # Triggers when deploy branch is updated
+  repository_dispatch:
+    types: [deploy-trigger]  # Triggered by build workflow
   workflow_dispatch:  # Allows manual triggers
 
 jobs:
