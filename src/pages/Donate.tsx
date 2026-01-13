@@ -591,22 +591,24 @@ export default function Donate() {
                     <p className="card-subtitle-modern">Support our mission today</p>
                   </div>
 
-                  <div className="upgrade-notice-modern">
-                    <div className="notice-header">
-                      <div className="notice-icon-modern">
-                        <i className="fas fa-cog fa-spin"></i>
-                      </div>
-                      <div className="notice-badge-modern">Upgrading</div>
-                    </div>
-                    <h4 className="notice-title-modern">Payment System Enhancement</h4>
-                    <p className="notice-text-modern">
-                      We're enhancing our payment system with improved security and more options.
-                    </p>
-                    <ul className="features-list-modern">
-                      <li><i className="fas fa-check-circle"></i> Mobile Money Integration</li>
-                      <li><i className="fas fa-check-circle"></i> International Payments</li>
-                      <li><i className="fas fa-check-circle"></i> Instant Receipts</li>
-                    </ul>
+                  <div className="donation-link-wrapper">
+                    <a 
+                      href="https://www.mchanga.africa/fundraiser/125738?_gl=1*1mrzoua*_gcl_au*MTg5MzE4MjI4OC4xNzYyMzQzNDU3LjI0Njg0NzMyOC4xNzYyMzQ0MTUwLjE3NjIzNDQ4MzE" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="donation-button-primary"
+                    >
+                      <span className="button-icon">
+                        <i className="fas fa-heart"></i>
+                      </span>
+                      <span className="button-content">
+                        <span className="button-text">Donate Now</span>
+                        <span className="button-subtext">via M-Changa</span>
+                      </span>
+                      <span className="button-arrow">
+                        <i className="fas fa-arrow-right"></i>
+                      </span>
+                    </a>
                   </div>
 
                   <div className="contact-wrapper-modern">
@@ -731,6 +733,97 @@ export default function Donate() {
                     font-size: 1.2rem;
                     color: #718096;
                     font-weight: 400;
+                  }
+
+                  .donation-link-wrapper {
+                    margin: 30px 0;
+                  }
+
+                  .donation-button-primary {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 16px;
+                    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+                    color: white;
+                    padding: 24px 32px;
+                    border-radius: 16px;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 1.1rem;
+                    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    border: none;
+                    position: relative;
+                    overflow: hidden;
+                  }
+
+                  .donation-button-primary::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                    transition: left 0.5s;
+                  }
+
+                  .donation-button-primary:hover::before {
+                    left: 100%;
+                  }
+
+                  .donation-button-primary:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 12px 32px rgba(255, 107, 53, 0.4);
+                  }
+
+                  .donation-button-primary:active {
+                    transform: translateY(-2px);
+                  }
+
+                  .button-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 48px;
+                    height: 48px;
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 12px;
+                    font-size: 1.3rem;
+                    flex-shrink: 0;
+                  }
+
+                  .button-content {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    text-align: left;
+                  }
+
+                  .button-text {
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    line-height: 1.2;
+                  }
+
+                  .button-subtext {
+                    font-size: 0.9rem;
+                    opacity: 0.9;
+                    font-weight: 400;
+                    margin-top: 2px;
+                  }
+
+                  .button-arrow {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.2rem;
+                    transition: transform 0.3s;
+                  }
+
+                  .donation-button-primary:hover .button-arrow {
+                    transform: translateX(5px);
                   }
 
                   .upgrade-notice-modern {

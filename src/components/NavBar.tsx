@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import ThemeToggle from './ThemeToggle'
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -45,7 +46,12 @@ const NavBar: React.FC = () => {
         <li><NavLink to="/events" onClick={closeMenu}>Events</NavLink></li>
         <li><NavLink to="/volunteer" onClick={closeMenu}>Volunteer</NavLink></li>
         <li><NavLink to="/blog" onClick={closeMenu}>Blog</NavLink></li>
+        <li><NavLink to="/team" onClick={closeMenu}>Team</NavLink></li>
+        <li><NavLink to="/gallery" onClick={closeMenu}>Gallery</NavLink></li>
         <li><NavLink to="/contact" onClick={closeMenu}>Contact</NavLink></li>
+        <li className="theme-toggle-nav">
+          <ThemeToggle />
+        </li>
         <li>
           <Link to="/donate" className="donate-btn" onClick={closeMenu}>
             ❤️ Donate

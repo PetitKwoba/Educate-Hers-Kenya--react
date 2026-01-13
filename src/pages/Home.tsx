@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import ScrollAnimation from '../components/ScrollAnimation'
+import CounterAnimation from '../components/CounterAnimation'
+import TestimonialsSlider from '../components/TestimonialsSlider'
+import FAQ from '../components/FAQ'
 
 export default function Home() {
   return (
@@ -31,59 +35,73 @@ export default function Home() {
       {/* Ways to Help Section */}
       <section className="ways-to-help-section" aria-labelledby="ways-to-help-heading">
         <h2 id="ways-to-help-heading" className="visually-hidden">Ways to Help</h2>
-        <div className="ways-grid">
-          {/* Crowdfunding Card */}
-          <article className="card help-card">
-            <div className="help-icon teal" role="img" aria-label="Money emoji">💰</div>
-            <h3 className="help-title teal">CROWDFUNDING</h3>
-            <p className="help-description">
-              We can't educate her alone, will be better with your donation. We call on fundraising from anything that you can.
-            </p>
-            <Link to="/donate">
-              <button className="help-btn btn-teal">
-                Partner with us and Educate Her today
-              </button>
-            </Link>
-          </article>
+        <ScrollAnimation animation="fade-in">
+          <div className="ways-grid">
+            {/* Crowdfunding Card */}
+            <article className="card help-card">
+              <div className="help-icon teal" role="img" aria-label="Money emoji">💰</div>
+              <h3 className="help-title teal">CROWDFUNDING</h3>
+              <p className="help-description">
+                We can't educate her alone, will be better with your donation. We call on fundraising from anything that you can.
+              </p>
+              <Link to="/donate">
+                <button className="help-btn btn-teal">
+                  Partner with us and Educate Her today
+                </button>
+              </Link>
+            </article>
 
-          {/* Scholarship Card */}
-          <article className="card help-card">
-            <div className="help-icon orange" role="img" aria-label="Graduation cap emoji">🎓</div>
-            <h3 className="help-title orange">GIVE SCHOLARSHIP</h3>
-            <p className="help-description">
-              We think that education is best way to help needy. You are nonprofit organization, NGO, if you can, let do it.
-            </p>
-            <Link to="/donate">
-              <button className="help-btn btn-orange">
-                Support a Scholar
-              </button>
-            </Link>
-          </article>
+            {/* Scholarship Card */}
+            <article className="card help-card">
+              <div className="help-icon orange" role="img" aria-label="Graduation cap emoji">🎓</div>
+              <h3 className="help-title orange">GIVE SCHOLARSHIP</h3>
+              <p className="help-description">
+                We think that education is best way to help needy. You are nonprofit organization, NGO, if you can, let do it.
+              </p>
+              <Link to="/donate">
+                <button className="help-btn btn-orange">
+                  Support a Scholar
+                </button>
+              </Link>
+            </article>
 
-          {/* Volunteer Card */}
-          <article className="card help-card">
-            <div className="help-icon teal" role="img" aria-label="Handshake emoji">🤝</div>
-            <h3 className="help-title teal">VOLUNTEER</h3>
-            <p className="help-description">
-              Share your time, skills, and passion to mentor and empower young girls through our volunteer programs.
-            </p>
-            <Link to="/volunteer" className="help-btn-link">
-              <button className="help-btn btn-teal">
-                Join Our Team
-              </button>
-            </Link>
-          </article>
-        </div>
+            {/* Volunteer Card */}
+            <article className="card help-card">
+              <div className="help-icon teal" role="img" aria-label="Handshake emoji">🤝</div>
+              <h3 className="help-title teal">VOLUNTEER</h3>
+              <p className="help-description">
+                Share your time, skills, and passion to mentor and empower young girls through our volunteer programs.
+              </p>
+              <Link to="/volunteer" className="help-btn-link">
+                <button className="help-btn btn-teal">
+                  Join Our Team
+                </button>
+              </Link>
+            </article>
+          </div>
+        </ScrollAnimation>
       </section>
 
       {/* Impact Statistics Section */}
       <section className="stats-section" aria-labelledby="stats-heading">
         <h2 id="stats-heading" className="visually-hidden">Our Impact Statistics</h2>
         <div className="stats-grid">
-          <StatCounter number="3+" label="Projects" />
-          <StatCounter number="20,000+" label="Donations" />
-          <StatCounter number="10+" label="Volunteers" />
-          <StatCounter number="3+" label="Years" />
+          <div className="stat-item">
+            <div className="stat-number"><CounterAnimation end={3} suffix="+" /></div>
+            <div className="stat-label">Projects</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number"><CounterAnimation end={20000} suffix="+" /></div>
+            <div className="stat-label">Donations</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number"><CounterAnimation end={10} suffix="+" /></div>
+            <div className="stat-label">Volunteers</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-number"><CounterAnimation end={3} suffix="+" /></div>
+            <div className="stat-label">Years</div>
+          </div>
         </div>
       </section>
 
@@ -236,7 +254,7 @@ export default function Home() {
           </div>
           <div className="team-card">
             <div className="team-image-container">
-              <img src="/assets/team/eve-maina.jpg" alt="Eve Maina" className="team-image" />
+              <img src="assets/team/eve-main.png" alt="Eve Maina" className="team-image" />
               <div className="team-overlay">
                 <div className="team-social">
                   <a href="#" className="social-icon" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
@@ -303,6 +321,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <TestimonialsSlider />
+
+      {/* FAQ Section */}
+      <FAQ />
+
       {/* Call to Action */}
       <section className="cta-section">
         <h2 className="cta-title">Join Our Mission</h2>
@@ -320,20 +344,6 @@ export default function Home() {
 }
 
 // Reusable Components
-interface StatCounterProps {
-  number: string
-  label: string
-}
-
-function StatCounter({ number, label }: StatCounterProps) {
-  return (
-    <div className="stat-item">
-      <div className="stat-number">{number}</div>
-      <div className="stat-label">{label}</div>
-    </div>
-  )
-}
-
 interface MissionCardProps {
   icon: string
   color: 'teal' | 'orange'
