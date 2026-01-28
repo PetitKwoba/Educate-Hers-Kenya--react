@@ -1499,3 +1499,251 @@
     padding: 1rem;
   }
 }
+
+/* Additional Mobile Enhancements */
+@media (max-width: 768px) {
+  /* Newsletter Popup */
+  .newsletter-popup {
+    max-width: 90%;
+    padding: 2rem 1.5rem;
+  }
+
+  .newsletter-popup h2 {
+    font-size: 1.5rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  /* FAQ Section */
+  .faq-question {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .faq-answer {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+
+  /* Testimonials Slider */
+  .testimonials-slider {
+    padding: 2rem 1rem;
+  }
+
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .testimonial-quote p {
+    font-size: 1rem;
+  }
+
+  .testimonial-author h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Theme Toggle */
+  .theme-toggle {
+    width: 50px;
+    height: 26px;
+  }
+
+  .theme-toggle-thumb {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Counter Animations */
+  .counter-number {
+    font-size: 2rem;
+  }
+
+  /* Loading Spinner */
+  .loading-spinner.large {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* WhatsApp Widget */
+  .whatsapp-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .whatsapp-popup {
+    width: 280px;
+    bottom: 75px;
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .gallery-filters {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .gallery-filters button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Team Page Hero */
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+
+  .page-hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Testimonials */
+  .testimonials-title {
+    font-size: 1.5rem;
+  }
+
+  .testimonials-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .slider-arrow {
+    width: 35px;
+    height: 35px;
+  }
+
+  .slider-arrow.left {
+    left: 0.5rem;
+  }
+
+  .slider-arrow.right {
+    right: 0.5rem;
+  }
+
+  .quote-icon {
+    font-size: 2rem;
+  }
+
+  /* FAQ */
+  .faq-title {
+    font-size: 1.5rem;
+  }
+
+  .faq-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .faq-icon {
+    font-size: 1rem;
+  }
+
+  /* WhatsApp Widget */
+  .whatsapp-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.25rem;
+  }
+
+  .whatsapp-popup {
+    width: 260px;
+    right: 10px;
+  }
+
+  .whatsapp-popup-header h3 {
+    font-size: 1rem;
+  }
+
+  .whatsapp-popup-message {
+    font-size: 0.85rem;
+  }
+
+  /* Newsletter */
+  .newsletter-icon {
+    font-size: 2.5rem;
+  }
+
+  .newsletter-popup h2 {
+    font-size: 1.25rem;
+  }
+
+  .newsletter-popup p {
+    font-size: 0.9rem;
+  }
+
+  /* Exit Popup */
+  .donation-exit-popup {
+    padding: 1.5rem 1rem;
+  }
+
+  .donation-exit-title {
+    font-size: 1.25rem;
+  }
+
+  .donation-exit-message {
+    font-size: 0.9rem;
+  }
+
+  .donation-exit-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.75rem;
+  }
+
+  .exit-stat-number {
+    font-size: 1.25rem;
+  }
+
+  .exit-stat-label {
+    font-size: 0.75rem;
+  }
+
+  .donation-exit-button {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  /* Gallery */
+  .lightbox-content {
+    max-width: 95%;
+    max-height: 80vh;
+  }
+
+  .lightbox-close {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  * {
+    max-width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
