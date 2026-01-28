@@ -7,25 +7,45 @@ const teamMembers = [
     name: "Cyprian Chenani, Bsc",
     role: "Founder/Lead Advocate",
     description: "As the driving force behind our advocacy campaign, our Founder/Lead Advocate sets the vision and direction for our efforts. With a passion for social change and a commitment to empowering youth voices.",
-    image: "/assets/team/cyprian-chenani.png"
+    image: "/assets/team/cyprian-chenani.png",
+    social: {
+      linkedin: "https://www.linkedin.com/in/cyprianchenani",
+      facebook: "https://www.facebook.com/share/17cr3VHsuY/?mibextid=wwXIfr",
+      email: "mailto:cyprian.chenani@educateherskenya.net"
+    }
   },
   {
     name: "Bramuel Wekesa, Bsc",
     role: "Campaign Coordinator/Event Planner",
     description: "The mastermind behind our advocacy events and campaigns, orchestrating every detail to ensure their success. From coordinating logistics to rallying support from partners and volunteers.",
-    image: "/assets/team/bramuel-wekesa-2.jpg"
+    image: "/assets/team/bramuel-wekesa-2.jpg",
+    social: {
+      linkedin: "#",
+      facebook: "#",
+      email: "#"
+    }
   },
   {
     name: "Emmanuel P. Kwoba",
     role: "Web Developer/Technical Support",
     description: "Ensures that our website runs smoothly and effectively serves as a hub for our advocacy efforts. Keeps our online platform up to date, secure, and user-friendly, empowering us to reach a wider audience.",
-    image: "/assets/team/emmanuel-kwoba.jpeg"
+    image: "/assets/team/emmanuel-kwoba.jpeg",
+    social: {
+      linkedin: "https://www.linkedin.com/in/emmanuel-petit-kwoba/",
+      facebook: "https://www.facebook.com/petit.kwoba/",
+      email: "mailto:emmanuel.kwoba@educateherskenya.net"
+    }
   },
   {
     name: "Eve Maina",
     role: "Communications Specialist",
     description: "The linchpin of our outreach efforts, responsible for crafting clear, concise, and compelling messaging that resonates with our target audience through strategic communication strategies.",
-    image: "assets/team/eve-main.png"
+    image: "assets/team/eve-main.png",
+    social: {
+      linkedin: "https://www.linkedin.com/in/eve-maina/",
+      facebook: "#",
+      email: "mailto:ewanjiru@educateherskenya.net"
+    }
   }
 ]
 
@@ -59,9 +79,9 @@ export default function Team() {
                 <img src={member.image} alt={member.name} className="team-image" />
                 <div className="team-overlay">
                   <div className="team-social">
-                    <a href="#" className="social-icon" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
-                    <a href="#" className="social-icon" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-                    <a href="#" className="social-icon" aria-label="Email"><i className="fas fa-envelope"></i></a>
+                    <a href={member.social.linkedin} className="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
+                    <a href={member.social.facebook} className="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
+                    <a href={member.social.email} className="social-icon" aria-label="Email"><i className="fas fa-envelope"></i></a>
                   </div>
                 </div>
               </div>

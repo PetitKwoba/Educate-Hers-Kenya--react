@@ -200,9 +200,9 @@ export default function Home() {
               <img src="/assets/team/cyprian-chenani.png" alt="Cyprian Chenani" className="team-image" />
               <div className="team-overlay">
                 <div className="team-social">
-                  <a href="#" className="social-icon" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
-                  <a href="#" className="social-icon" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-                  <a href="#" className="social-icon" aria-label="Email"><i className="fas fa-envelope"></i></a>
+                  <a href="https://www.linkedin.com/in/cyprianchenani" className="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.facebook.com/share/17cr3VHsuY/?mibextid=wwXIfr" className="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
+                  <a href="mailto:cyprian.chenani@educateherskenya.net" className="social-icon" aria-label="Email"><i className="fas fa-envelope"></i></a>
                 </div>
               </div>
             </div>
@@ -214,7 +214,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="team-card">
+          {/* <div className="team-card">
             <div className="team-image-container">
               <img src="/assets/team/bramuel-wekesa-2.jpg" alt="Bramuel Wekesa" className="team-image" />
               <div className="team-overlay">
@@ -232,15 +232,15 @@ export default function Home() {
                 The mastermind behind our advocacy events and campaigns, orchestrating every detail to ensure their success. From coordinating logistics to rallying support from partners and volunteers.
               </p>
             </div>
-          </div>
+          </div> */}
           <div className="team-card">
             <div className="team-image-container">
               <img src="/assets/team/emmanuel-kwoba.jpeg" alt="Emmanuel P. Kwoba" className="team-image" />
               <div className="team-overlay">
                 <div className="team-social">
-                  <a href="#" className="social-icon" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
-                  <a href="#" className="social-icon" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-                  <a href="#" className="social-icon" aria-label="Email"><i className="fas fa-envelope"></i></a>
+                  <a href="https://www.linkedin.com/in/emmanuel-petit-kwoba/" className="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.facebook.com/petit.kwoba/" className="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
+                  <a href="mailto:emmanuel.kwoba@educateherskenya.net" className="social-icon" aria-label="Email"><i className="fas fa-envelope"></i></a>
                 </div>
               </div>
             </div>
@@ -257,9 +257,9 @@ export default function Home() {
               <img src="assets/team/eve-main.png" alt="Eve Maina" className="team-image" />
               <div className="team-overlay">
                 <div className="team-social">
-                  <a href="#" className="social-icon" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
-                  <a href="#" className="social-icon" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-                  <a href="#" className="social-icon" aria-label="Email"><i className="fas fa-envelope"></i></a>
+                  <a href="https://www.linkedin.com/in/eve-maina/" className="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
+                  <a href="#" className="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
+                  <a href="mailto:ewanjiru@educateherskenya.net" className="social-icon" aria-label="Email"><i className="fas fa-envelope"></i></a>
                 </div>
               </div>
             </div>
